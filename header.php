@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'auth_check.php'; // Proteger todas las páginas que usen este header
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,9 +36,27 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <?php if (isset($_SESSION['idusuario'])): ?>
+                        <li class="nav-item">
+                            <span class="navbar-text me-2">
+                                Hola, <?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                        </li>
+                    <?php else: ?>
+                        <!-- Podrías tener un enlace a login.php aquí si el header se usara en páginas públicas -->
+                        <!-- <li class="nav-item">
+                            <a class="nav-link active" href="login.php">Iniciar Sesión</a>
+                        </li> -->
+                    <?php endif; ?>
+                    <!-- El enlace original a ../inicio.php puede o no ser necesario ahora -->
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link active" href="../inicio.php">Inicio</a>
                     </li>
+                    -->
                 </ul>
             </div>
         </div>
