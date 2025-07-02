@@ -126,3 +126,47 @@ body {
     background-color: #f8f9fa; /* Un ligero fondo para destacar */
     color: #01184d;
 }
+
+/* === ESTILOS NUEVO HEADER Y PÁGINA DE INICIO === */
+
+/* Ajuste general del body por el navbar fijo */
+body {
+    padding-top: 56px; /* Altura estándar de un navbar de Bootstrap */
+}
+
+/* Avatar del usuario en el header */
+.user-avatar {
+    width: 32px; /* Tamaño del avatar */
+    height: 32px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    border-radius: 50%; /* Para hacerlo circular */
+}
+
+/* Estilos para el cuerpo de la página de inicio con logo de fondo */
+body.body-bg-logo {
+    background-image: url('../img/logo.webp'); /* Ruta relativa desde css/ a img/ */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain; /* 'contain' para asegurar que el logo se vea completo */
+    background-color: var(--color-light); /* Color de fondo si el logo es transparente o no carga */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 56px); /* Ocupar al menos el alto de la ventana menos el navbar */
+}
+
+/* Contenedor para el contenido de la página de inicio, si se necesita */
+.index-content-wrapper {
+    flex-grow: 1;
+    /* Espacio adicional si es necesario, aunque con el logo de fondo puede no serlo */
+}
+
+/* Ajustes para el dropdown del usuario en el navbar si es necesario */
+.navbar .dropdown-menu-end {
+    right: 0;
+    left: auto;
+}
+
+.navbar .nav-item .dropdown-toggle::after {
+    margin-left: 0.5em; /* Espacio para la flecha del dropdown */
+}

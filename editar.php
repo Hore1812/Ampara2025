@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/header.php';
+require_once 'includes/nuevo_header.php'; // Modificado para usar el nuevo header
 require_once 'funciones.php';
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
